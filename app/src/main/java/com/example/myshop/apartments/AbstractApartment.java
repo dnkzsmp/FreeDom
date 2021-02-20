@@ -4,6 +4,7 @@ import com.example.myshop.housing.Housing;
 import com.example.myshop.housing.HousingStatus;
 
 public abstract class AbstractApartment implements Housing {
+
     protected int floor;
     protected int countOfRooms;
     protected int countOfSleepingPlaces;
@@ -55,4 +56,5 @@ public abstract class AbstractApartment implements Housing {
                 isHaveBalcony() == that.isHaveBalcony() &&
                 housingArea.equals(that.housingArea);
     }
+
 }
