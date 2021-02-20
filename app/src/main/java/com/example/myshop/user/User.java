@@ -12,11 +12,13 @@ public abstract class User {
 
     public abstract String getName();
 
+    public abstract String getPassword();
+
     public abstract String getSurname();
 
     public abstract String getPatronymic();
 
-    public abstract String getPhoneNumber();
+    public abstract String getPhone();
 
     public abstract Gender getGender();
 
@@ -26,17 +28,16 @@ public abstract class User {
     protected String name;
     protected String surname;
     protected String patronymic;
-    protected String phoneNumber;
+    protected String phone;
     protected Gender gender;
     protected Status status;
+    protected String password;
 
-    public User(int age, String name, String surname, String patronymic, String phoneNumber, Gender gender) {
-        this.age = age;
-        this.name = name;
-        this.surname = surname;
-        this.patronymic = patronymic;
-        this.phoneNumber = phoneNumber;
-        this.gender = gender;
+    public User() {}
+
+    public User(String phone, String password) {
+        this.phone = phone;
+        this.password = password;
     }
 
     @Override
@@ -48,14 +49,23 @@ public abstract class User {
                 getName().equals(user.getName()) &&
                 getSurname().equals(user.getSurname()) &&
                 getPatronymic().equals(user.getPatronymic()) &&
-                getPhoneNumber().equals(user.getPhoneNumber()) &&
+                getPhone().equals(user.getPhone()) &&
                 getGender() == user.getGender() &&
                 getStatus() == user.getStatus();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(MIN_AGE, getAge(), getName(), getSurname(), getPatronymic(), getPhoneNumber(), getGender(), getStatus());
+        return Objects.hash(
+                MIN_AGE,
+                getAge(),
+                getName(),
+                getSurname(), 
+                getPatronymic(),
+                getPhone(),
+                getGender(),
+                getStatus()
+        );
     }
 
     @Override
@@ -65,7 +75,7 @@ public abstract class User {
                 ", name = '" + name + '\'' +
                 ", surname = '" + surname + '\'' +
                 ", patronymic = '" + patronymic + '\'' +
-                ", phoneNumber = '" + phoneNumber + '\'' +
+                ", phoneNumber = '" + phone + '\'' +
                 ", gender = " + gender +
                 ", status = " + status +
                 '}';

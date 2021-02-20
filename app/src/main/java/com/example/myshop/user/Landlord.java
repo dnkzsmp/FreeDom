@@ -2,14 +2,21 @@ package com.example.myshop.user;
 
 public class Landlord extends User {
 
-    public Landlord(int age, String name, String surname, String patronymic, String phoneNumber, Gender gender) {
-        super(age, name, surname, patronymic, phoneNumber, gender);
+    public Landlord(String phone, String password) {
+        super(phone, password);
         status = Status.LANDLORD;
     }
+
+    public Landlord() {}
 
     @Override
     public int getMinAge() {
         return MIN_AGE;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.password;
     }
 
     @Override
@@ -33,8 +40,8 @@ public class Landlord extends User {
     }
 
     @Override
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
     @Override
